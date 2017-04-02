@@ -34,4 +34,11 @@ Widget.defaultProps = {
     rowspan: 1
 }
 
+Widget.propTypes = {
+    heading: React.PropTypes.string,
+    colspan: React.PropTypes.number,
+    rowspan: React.PropTypes.number,
+    children: React.PropTypes.element.isRequired
+}
+
 export default Widget;
