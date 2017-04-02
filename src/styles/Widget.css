@@ -6,34 +6,27 @@
         "header"
         "content";
     background-color: #34495e;
-    padding: 0 1rem 1rem 1rem;
+    padding: 1rem;
 }
 
 .Widget h2 {
-    /*font-weight: normal;*/
-    font-size: 1rem;
+    font-size: 1.5rem;
+    margin: 0;
     line-height: 1;
 }
 
 .Widget .header {
     grid-area: header;
-    /*background-color: red;*/
     line-height: 2;
 }
 
 .Widget .content {
     grid-area: content;
-    /*background-color: green;*/
+    padding-top: 1rem;
 }
 
-.col-2 {
-    grid-column: span 2;
-}
-
-.row-2 {
-    grid-row: span 2;
-}
-
-.row-3 {
-    grid-row: span 3;
+@media(max-width: 600px) {
+    .Widget .content {
+        padding-top: 0.25rem;
+    }
 }
