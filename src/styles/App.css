@@ -1,0 +1,19 @@
+.App {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 1rem;
+    padding: 1rem;
+    -webkit-font-smoothing: antialiased;
+}
+
+@media(max-width: 600px) {
+    .App {
+        display: block;
+    }
+
+    .App * + * {
+        margin-top: 1rem;
+    }
+}
