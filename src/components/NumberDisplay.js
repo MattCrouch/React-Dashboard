@@ -3,10 +3,6 @@ import React, { Component } from 'react';
 import '../styles/NumberDisplay.css';
 
 class NumberDisplay extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         let max = null;
 

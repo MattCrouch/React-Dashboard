@@ -6,6 +6,7 @@ class Widget extends Component {
     constructor(props) {
         super(props);
 
+        //Assuming this information doesn't change...
         this.spanStyles = {};
         if(props.colspan !== 1) {
             this.spanStyles.gridColumn = `span ${ props.colspan }`;

@@ -12,32 +12,16 @@ class App extends Component {
           CONTENT!
           </div>
         </Widget>
-        <NumberWidget heading="Widget 2" min={0} max={100} value={25} />
+        <NumberWidget heading="Open Ticket Total" value={13} />
         <Widget heading="Widget 3" colspan={2} rowspan={2} >
           <div>
           CONTENT!
           </div>
         </Widget>
-        <Widget heading="Widget 4" >
-          <div>
-          CONTENT!
-          </div>
-        </Widget>
-        <Widget heading="Widget 5" >
-          <div>
-          CONTENT!
-          </div>
-        </Widget>
-        <Widget heading="Widget 6" >
-          <div>
-          CONTENT!
-          </div>
-        </Widget>
-        <Widget heading="Widget 7" >
-          <div>
-          CONTENT!
-          </div>
-        </Widget>
+        <NumberWidget heading="Tickets Opened Today" value={9} />
+        <NumberWidget heading="Tickets Marked 'Urgent'" min={0} max={13} value={2} />
+        <NumberWidget heading="4 Hour Response %" min={0} max={100} value={89} />
+        <NumberWidget heading="7 Day Solved %" min={0} max={100} value={25} />
       </div>
     );
   }

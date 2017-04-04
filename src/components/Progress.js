@@ -3,14 +3,20 @@ import React, { Component } from 'react';
 import '../styles/Progress.css';
 
 class Progress extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
+        let value = this.props.value;
+        
+        if(value < this.props.min) {
+            value = 0;
+        } else if(value > this.props.max) {
+            value = this.props.max;
+        }
+
+        let innerWidthStyle = { width: `${(value / this.props.max) * 100}%` };
+
         return (
             <div className="Progress">
-                <div className="inner" />
+                <div className="inner" style={ innerWidthStyle } />
             </div>
         );
     }
