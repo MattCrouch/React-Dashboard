@@ -13,7 +13,7 @@
         display: block;
     }
 
-    .App * + * {
+    .App > * + * {
         margin-top: 1rem;
     }
 }
