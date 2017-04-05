@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import Widget from '../components/Widget';
 import NumberWidget from '../components/NumberWidget';
+import ListWidget from '../components/ListWidget';
 import '../styles/App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Widget heading="Widget 1" rowspan={3} >
-          <div>
-          CONTENT!
-          </div>
-        </Widget>
+        <ListWidget heading="Top Ticket Answerers" rowspan={3} />
         <NumberWidget heading="Open Ticket Total" value={13} />
         <Widget heading="Widget 3" colspan={2} rowspan={2} >
           <div>
