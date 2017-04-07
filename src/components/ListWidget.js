@@ -64,14 +64,12 @@ class ListWidget extends Component {
             return 0;
         });
 
-        if(this.state.listItems.length == 0) {
+        if(this.state.listItems.length === 0) {
             return <span>Loading...</span>;
         }
 
         let min = 0;
         let max = sortedItems[0].value;
-        
-        console.log(min, max);
 
         return (
             <Widget heading={this.props.heading} colspan={this.props.colspan} rowspan={this.props.rowspan}>
