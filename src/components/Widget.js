@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loading from './Loading';
 import '../styles/Widget.css';
 
 class Widget extends Component {
@@ -19,7 +20,10 @@ class Widget extends Component {
     return (
       <div style={ this.spanStyles } className="Widget">
         <div className="header">
-            <h2>{ this.props.heading }</h2>
+            <h2>
+                { this.props.heading }
+                { this.props.loading ? <Loading /> : "" }
+            </h2>
         </div>
         <div className="content">
             { this.props.children }

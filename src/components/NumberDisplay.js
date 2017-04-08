@@ -25,10 +25,6 @@ class NumberDisplay extends Component {
     }
 }
 
-NumberDisplay.defaultProps = {
-    value: 0
-}
-
 NumberDisplay.propTypes = {
     min: React.PropTypes.number,
     max: React.PropTypes.number,

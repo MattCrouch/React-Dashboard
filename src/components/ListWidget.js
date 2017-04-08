@@ -19,14 +19,10 @@ class ListWidget extends Component {
     }
 
     showWidget() {
-        if(this.props.loading) {
-            return <p>Loading...</p>;
-        }
-
         let sortedItems = this.sortListItems();
 
         if(this.props.listItems.length === 0) {
-            return null;
+            return <p>Loading...</p>;
         }
 
         let min = 0;
@@ -39,7 +35,7 @@ class ListWidget extends Component {
 
     render() {
         return (
-            <Widget heading={this.props.heading} colspan={this.props.colspan} rowspan={this.props.rowspan}>
+            <Widget heading={this.props.heading} colspan={this.props.colspan} rowspan={this.props.rowspan} loading={this.props.loading} >
                 <div className="ListWidget">
                     { this.showWidget() }
                 </div>

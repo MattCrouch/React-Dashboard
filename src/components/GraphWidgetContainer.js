@@ -10,6 +10,8 @@ class GraphWidgetContainer extends Component {
             loading: false,
             values: []
         }
+
+        this.getData = this.getData.bind(this);
     }
 
     componentDidMount() {

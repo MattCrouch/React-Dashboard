@@ -15,6 +15,10 @@
     line-height: 1;
 }
 
+.Widget h2 .Loading {
+    margin-left: 0.5rem;
+}
+
 .Widget .header {
     grid-area: header;
     line-height: 2;

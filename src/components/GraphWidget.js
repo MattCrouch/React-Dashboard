@@ -10,7 +10,6 @@ class GraphWidget extends Component {
         super(props);
 
         this.generateDatasets = this.generateDatasets.bind(this);
-        this.showWidget = this.showWidget.bind(this);
         
         this.state = {
             values: {
@@ -80,19 +79,10 @@ class GraphWidget extends Component {
         });
     }
 
-    showWidget() {
-        if(this.props.loading) {
-            return <p>Loading...</p>;
-        }
-
-        return <Line data={this.state.values} options={this.state.chartOptions} redraw />
-    }
-
     render() {
         return (
-            <Widget heading={this.props.heading} colspan={this.props.colspan} rowspan={this.props.rowspan}>
+            <Widget heading={this.props.heading} colspan={this.props.colspan} rowspan={this.props.rowspan} loading={this.props.loading}>
                 <div className="GraphWidget">
-                    {this.props.loading ? <p>Loading...</p> : "" }
                     <Line data={this.state.values} options={this.state.chartOptions} />
                 </div>
             </Widget>

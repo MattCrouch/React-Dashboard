@@ -8,7 +8,7 @@ import '../styles/NumberWidget.css';
 
 class NumberWidget extends Component {
     showWidget() {
-        if(this.props.loading) {
+        if(this.props.value === undefined) {
             return <p>Loading...</p>;
         }
         
@@ -28,7 +28,7 @@ class NumberWidget extends Component {
 
     render() {
         return (
-            <Widget heading={this.props.heading} colspan={this.props.colspan} rowspan={this.props.rowspan}>
+            <Widget heading={this.props.heading} colspan={this.props.colspan} rowspan={this.props.rowspan} loading={this.props.loading}>
                 { this.showWidget() }
             </Widget>
         );

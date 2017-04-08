@@ -10,20 +10,23 @@ class NumberWidgetContainer extends Component {
             loading: false,
             min: undefined,
             max: undefined,
-            value: 0
+            value: undefined
         }
 
-        this.getData.bind(this);
+        this.getData = this.getData.bind(this);
     }
 
     componentDidMount() {
-        this.getData();
+        this.setState({ initialLoad: true });
+        this.getData().then(resp => this.setState({ initialLoad: false }));
+
+        // this.interval = setInterval(this.getData, 5000);
     }
 
     getData() {
         this.setState({ loading: true });
 
-        axios.get(this.props.src)
+        return axios.get(this.props.src)
             .then(response => {
                 let newState = { loading: false };
 
