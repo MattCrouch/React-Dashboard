@@ -15,13 +15,15 @@ class ListWidgetContainer extends Component {
     }
 
     componentDidMount() {
-        this.getData();
+        this.getData().then(_ => {
+            this.interval = setInterval(this.getData, 60000);
+        });
     }
 
     getData() {
         this.setState({ loading: true });
 
-        axios.get(this.props.href)
+        return axios.get(this.props.href)
             .then(response => {
                 this.setState({ loading: false, values: response.data });
             })

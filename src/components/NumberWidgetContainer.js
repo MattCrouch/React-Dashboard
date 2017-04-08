@@ -17,10 +17,8 @@ class NumberWidgetContainer extends Component {
     }
 
     componentDidMount() {
-        this.setState({ initialLoad: true });
         this.getData().then(_ => {
-            this.setState({ initialLoad: false })
-            this.interval = setInterval(this.getData, 5000);
+            this.interval = setInterval(this.getData, 60000);
         });
     }
 
