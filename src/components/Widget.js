@@ -22,8 +22,8 @@ class Widget extends Component {
         <div className="header">
             <h2>
                 { this.props.heading }
-                { this.props.loading ? <Loading /> : "" }
             </h2>
+            { this.props.loading ? <Loading /> : "" }
         </div>
         <div className="content">
             { this.props.children }
