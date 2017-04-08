@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Widget from '../components/Widget';
-// import ListDisplay from '../components/ListDisplay';
-// import ListItem from '../components/ListItem';
 
 import { Line } from 'react-chartjs-2';
 
@@ -11,9 +9,9 @@ class GraphWidget extends Component {
     constructor(props) {
         super(props);
 
-        this.generateDatasets.bind(this);
+        this.generateDatasets = this.generateDatasets.bind(this);
+        this.showWidget = this.showWidget.bind(this);
         
-        //TODO: Convert this so we can pass data in as props
         this.state = {
             values: {
                 labels: ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"],
@@ -82,10 +80,19 @@ class GraphWidget extends Component {
         });
     }
 
+    showWidget() {
+        if(this.props.loading) {
+            return <p>Loading...</p>;
+        }
+
+        return <Line data={this.state.values} options={this.state.chartOptions} redraw />
+    }
+
     render() {
         return (
             <Widget heading={this.props.heading} colspan={this.props.colspan} rowspan={this.props.rowspan}>
                 <div className="GraphWidget">
+                    {this.props.loading ? <p>Loading...</p> : "" }
                     <Line data={this.state.values} options={this.state.chartOptions} />
                 </div>
             </Widget>

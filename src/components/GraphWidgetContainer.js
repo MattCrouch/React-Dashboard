@@ -7,23 +7,31 @@ class GraphWidgetContainer extends Component {
     constructor() {
         super();
         this.state = {
+            loading: false,
             values: []
         }
     }
 
     componentDidMount() {
+        this.getData();
+    }
+
+    getData() {
+        this.setState({ loading: true });
+
         axios.get(this.props.src)
             .then(response => {
-                this.setState({ data: response.data });
+                this.setState({ loading: false, data: response.data });
             })
             .catch(error => {
                 console.log(error);
+                this.setState({ loading: false });
             });
     }
 
     render() {
         return (
-            <GraphWidget heading={this.props.heading} colspan={this.props.colspan} rowspan={this.props.rowspan} data={this.state.data} />
+            <GraphWidget heading={this.props.heading} colspan={this.props.colspan} rowspan={this.props.rowspan} data={this.state.data} loading={this.state.loading}/>
         );
     }
 }

@@ -7,16 +7,25 @@ class NumberWidgetContainer extends Component {
     constructor() {
         super();
         this.state = {
+            loading: false,
             min: undefined,
             max: undefined,
             value: 0
         }
+
+        this.getData.bind(this);
     }
 
     componentDidMount() {
+        this.getData();
+    }
+
+    getData() {
+        this.setState({ loading: true });
+
         axios.get(this.props.src)
             .then(response => {
-                let newState = {};
+                let newState = { loading: false };
 
                 if(response.data.hasOwnProperty("min")) {
                     newState["min"] = response.data.min;
@@ -32,12 +41,13 @@ class NumberWidgetContainer extends Component {
             })
             .catch(error => {
                 console.log(error);
+                this.setState({ loading: false });
             });
     }
 
     render() {
         return (
-            <NumberWidget heading={this.props.heading} colspan={this.props.colspan} rowspan={this.props.rowspan} min={this.state.min} max={this.state.max} value={this.state.value} />
+            <NumberWidget heading={this.props.heading} colspan={this.props.colspan} rowspan={this.props.rowspan} min={this.state.min} max={this.state.max} value={this.state.value} loading={this.state.loading}/>
         );
     }
 }
