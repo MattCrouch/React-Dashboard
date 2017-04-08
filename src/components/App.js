@@ -8,13 +8,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ListWidgetContainer src="http://localhost:3001/stats/top" heading="Top Ticket Answerers" rowspan={3} />
-        <NumberWidgetContainer src="http://localhost:3001/tickets/open" heading="Open Ticket Total" />
-        <GraphWidgetContainer src="http://localhost:3001/tickets/progression" heading="Tickets Over Time" colspan={2} rowspan={2} />
-        <NumberWidgetContainer src="http://localhost:3001/tickets/today" heading="Tickets Opened Today" />
-        <NumberWidgetContainer src="http://localhost:3001/tickets/urgent" heading="Tickets Marked 'Urgent'" />
-        <NumberWidgetContainer src="http://localhost:3001/stats/response" heading="4 Hour Response %" />
-        <NumberWidgetContainer src="http://localhost:3001/stats/solved" heading="7 Day Solved %" />
+        <ListWidgetContainer href="http://localhost:3001/stats/top" heading="Top Ticket Answerers" rowspan={3} />
+        <NumberWidgetContainer href="http://localhost:3001/tickets/open" heading="Open Ticket Total" />
+        <GraphWidgetContainer href="http://localhost:3001/tickets/progression" heading="Tickets Over Time" colspan={2} rowspan={2} />
+        <NumberWidgetContainer href="http://localhost:3001/tickets/today" heading="Tickets Opened Today" />
+        <NumberWidgetContainer href="http://localhost:3001/tickets/urgent" heading="Tickets Marked 'Urgent'" />
+        <NumberWidgetContainer href="http://localhost:3001/stats/response" heading="4 Hour Response %" />
+        <NumberWidgetContainer href="http://localhost:3001/stats/solved" heading="7 Day Solved %" />
       </div>
     );
   }

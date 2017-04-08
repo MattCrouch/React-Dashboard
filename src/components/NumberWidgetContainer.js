@@ -18,15 +18,16 @@ class NumberWidgetContainer extends Component {
 
     componentDidMount() {
         this.setState({ initialLoad: true });
-        this.getData().then(resp => this.setState({ initialLoad: false }));
-
-        // this.interval = setInterval(this.getData, 5000);
+        this.getData().then(_ => {
+            this.setState({ initialLoad: false })
+            this.interval = setInterval(this.getData, 5000);
+        });
     }
 
     getData() {
         this.setState({ loading: true });
 
-        return axios.get(this.props.src)
+        return axios.get(this.props.href)
             .then(response => {
                 let newState = { loading: false };
 

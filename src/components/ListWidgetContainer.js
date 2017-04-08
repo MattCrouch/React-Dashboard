@@ -21,7 +21,7 @@ class ListWidgetContainer extends Component {
     getData() {
         this.setState({ loading: true });
 
-        axios.get(this.props.src)
+        axios.get(this.props.href)
             .then(response => {
                 this.setState({ loading: false, values: response.data });
             })
