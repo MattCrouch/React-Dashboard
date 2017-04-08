@@ -7,55 +7,9 @@ import ListItem from '../components/ListItem';
 import '../styles/ListWidget.css';
 
 class ListWidget extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            listItems: []
-        }
-    }
-
-    componentDidMount() {
-        this.setState({
-            listItems: [
-                {
-                    label: "Lauren",
-                    value: 26
-                },
-                {
-                    label: "Dave",
-                    value: 13
-                },
-                {
-                    label: "John",
-                    value: 18
-                },
-                {
-                    label: "Gregg",
-                    value: 19
-                },
-                {
-                    label: "Matt",
-                    value: 4
-                },
-                {
-                    label: "Jaral",
-                    value: 12
-                },
-                {
-                    label: "Bridget",
-                    value: 18
-                },
-                {
-                    label: "Rob",
-                    value: 7
-                }
-            ]
-        });
-    }
-
     render() {
         //Sort by largest value first
-        let sortedItems = this.state.listItems.slice().sort((a, b) => {
+        let sortedItems = this.props.listItems.slice().sort((a, b) => {
             if(a.value > b.value) {
                 return -1;
             } else if(a.value < b.value) {
@@ -64,7 +18,7 @@ class ListWidget extends Component {
             return 0;
         });
 
-        if(this.state.listItems.length === 0) {
+        if(this.props.listItems.length === 0) {
             return <span>Loading...</span>;
         }
 
