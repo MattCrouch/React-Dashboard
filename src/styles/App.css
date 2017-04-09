@@ -1,11 +1,25 @@
 .App {
+    display: block;
     min-height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-gap: 1rem;
     padding: 1rem;
     -webkit-font-smoothing: antialiased;
+}
+
+.App > * + * {
+    margin-top: 1rem;
+}
+
+@supports(display:grid) {
+    .App {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-gap: 1rem;
+    }
+
+    .App > * + * {
+        margin-top: 0;
+    }
 }
 
 @media(max-width: 600px) {
