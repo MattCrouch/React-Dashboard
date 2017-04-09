@@ -1,12 +1,22 @@
 .Widget {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto 1fr;
-    grid-template-areas: 
-        "header"
-        "content";
     background-color: #34495e;
     padding: 1rem;
+}
+
+/* autoprefixer: off */
+@supports(display:grid) {
+    .Widget {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto 1fr;
+        grid-template-areas: 
+            "header"
+            "content";
+    }
+
+    .App > * + * {
+        margin-top: 0;
+    }
 }
 
 .Widget .header {

@@ -8,13 +8,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ListWidgetContainer href="http://localhost:3001/stats/top" heading="Top Ticket Answerers" rowspan={3} />
-        <NumberWidgetContainer href="http://localhost:3001/tickets/open" heading="Open Ticket Total" />
-        <GraphWidgetContainer href="http://localhost:3001/tickets/progression" heading="Tickets Over Time" colspan={2} rowspan={2} />
-        <NumberWidgetContainer href="http://localhost:3001/tickets/today" heading="Tickets Opened Today" />
-        <NumberWidgetContainer href="http://localhost:3001/tickets/urgent" heading="Tickets Marked 'Urgent'" />
-        <NumberWidgetContainer href="http://localhost:3001/stats/response" heading="4 Hour Response %" />
-        <NumberWidgetContainer href="http://localhost:3001/stats/solved" heading="7 Day Solved %" />
+        <ListWidgetContainer href="http://192.168.1.109:3001/stats/top" heading="Top Ticket Answerers" col={1} row={1} rowspan={3} />
+        <NumberWidgetContainer href="http://192.168.1.109:3001/tickets/open" heading="Open Ticket Total" col={2} row={1} />
+        <GraphWidgetContainer href="http://192.168.1.109:3001/tickets/progression" heading="Tickets Over Time" col={3} row={1} colspan={2} rowspan={2} />
+        <NumberWidgetContainer href="http://192.168.1.109:3001/tickets/today" heading="Tickets Opened Today" col={2} row={2} />
+        <NumberWidgetContainer href="http://192.168.1.109:3001/tickets/urgent" heading="Tickets Marked 'Urgent'" col={2} row={3} />
+        <NumberWidgetContainer href="http://192.168.1.109:3001/stats/response" heading="4 Hour Response %" col={3} row={3} />
+        <NumberWidgetContainer href="http://192.168.1.109:3001/stats/solved" heading="7 Day Solved %" col={4} row={3} />
       </div>
     );
   }
