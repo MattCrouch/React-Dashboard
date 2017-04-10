@@ -90,4 +90,12 @@ class GraphWidget extends Component {
     }
 }
 
+GraphWidget.propTypes = {
+    heading: React.PropTypes.string,
+    colspan: React.PropTypes.number,
+    rowspan: React.PropTypes.number,
+    loading: React.PropTypes.bool.isRequired,
+    data: React.PropTypes.arrayOf(React.PropTypes.object)
+}
+
 export default GraphWidget;

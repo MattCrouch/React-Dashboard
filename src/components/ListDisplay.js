@@ -13,7 +13,7 @@ class ListDisplay extends Component {
 }
 
 ListDisplay.propTypes = {
-    
+    children: React.PropTypes.arrayOf(React.PropTypes.element).isRequired
 }
 
 export default ListDisplay;

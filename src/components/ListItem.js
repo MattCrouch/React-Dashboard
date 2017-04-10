@@ -18,7 +18,10 @@ class ListItem extends Component {
 }
 
 ListItem.propTypes = {
-    
+    label: React.PropTypes.string,
+    min: React.PropTypes.number,
+    max: React.PropTypes.number,
+    value: React.PropTypes.number
 }
 
 export default ListItem;

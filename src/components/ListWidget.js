@@ -44,4 +44,12 @@ class ListWidget extends Component {
     }
 }
 
+ListWidget.propTypes = {
+    heading: React.PropTypes.string,
+    colspan: React.PropTypes.number,
+    rowspan: React.PropTypes.number,
+    loading: React.PropTypes.bool.isRequired,
+    listItems: React.PropTypes.arrayOf(React.PropTypes.object)
+}
+
 export default ListWidget;
