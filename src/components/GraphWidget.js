@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
+
+// Import components
 import Widget from '../components/Widget';
 
+//Import graphing component
 import { Line } from 'react-chartjs-2';
 
+// Import styling
 import '../styles/GraphWidget.css';
 
 class GraphWidget extends Component {
     constructor(props) {
         super(props);
 
-        this.generateDatasets = this.generateDatasets.bind(this);
-        
+        // Set the initial state for the graphing component
         this.state = {
             values: {
                 labels: ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"],
@@ -19,7 +22,7 @@ class GraphWidget extends Component {
             chartOptions: {
                 responsive: true,
                 maintainAspectRatio: false,
-                scaleShowGridLines : false,
+                scaleShowGridLines: false,
                 scales: {
                     xAxes: [{
                         ticks: {
@@ -28,7 +31,7 @@ class GraphWidget extends Component {
                             fontColor: "#ecf0f1",
                         },
                         gridLines: {
-                            display:false
+                            display: false
                         }
                     }],
                     yAxes: [{
@@ -39,7 +42,7 @@ class GraphWidget extends Component {
                             fontColor: "#ecf0f1",
                         },
                         gridLines: {
-                            display:false
+                            display: false
                         }
                     }],
                 },
@@ -50,16 +53,20 @@ class GraphWidget extends Component {
         }
     }
 
+    // Update the state based on changing props
     componentWillReceiveProps(nextProps) {
-        if(this.props.data !== nextProps.data) {
+        if (this.props.data !== nextProps.data) {
+            //Only update if the data has actually changed
             this.generateDatasets(nextProps);
         }
     }
 
+    //Convert the data received in props to a format the graphing component likes
     generateDatasets(props) {
         let datasets = [];
 
-        props.data.forEach(function(data) {
+        //Create a dataset object that Chart.js to understand
+        props.data.forEach(function (data) {
             datasets.push({
                 label: data.label,
                 data: data.data,
@@ -72,6 +79,7 @@ class GraphWidget extends Component {
             });
         }, this);
 
+        //Let the React wrapper for Chart.js update the view
         this.setState({
             values: {
                 datasets
@@ -81,6 +89,7 @@ class GraphWidget extends Component {
 
     render() {
         return (
+            // Wrap the graphing component in the generic wrapper
             <Widget heading={this.props.heading} colspan={this.props.colspan} rowspan={this.props.rowspan} loading={this.props.loading}>
                 <div className="GraphWidget">
                     <Line data={this.state.values} options={this.state.chartOptions} />
@@ -90,6 +99,7 @@ class GraphWidget extends Component {
     }
 }
 
+// Enforce the type of props to send to this component
 GraphWidget.propTypes = {
     heading: React.PropTypes.string,
     colspan: React.PropTypes.number,
