@@ -1,5 +1,7 @@
 # React Dashboard
 
+[Demo][Demo]
+
 A React-powered status dashboard designed to be used on a large screen. Keeps things customisable using modular components and pull data regularly from an API.
 
 Also includes a simple Express server to simulate a data source. In this case, it's emulating a support ticket system with random values.
@@ -10,5 +12,6 @@ Also uses [Axios][Axios] for managing data requests, and [react-chartjs-2][react
 
 Create for Web Designer Magazine issue 262.
 
+[Demo]:https://mattcrouch.github.io/reactdashboard
 [Axios]:https://github.com/mzabriskie/axios
 [react-chartjs-2]:https://github.com/gor181/react-chartjs-2
